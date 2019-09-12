@@ -7,7 +7,7 @@ import org.http4k.core.Status
 import org.http4k.core.with
 import org.http4k.format.Jackson.auto
 
-val rootHandler = { request: Request ->
+val rootHandler = { _: Request ->
     val result = RootResponsePayload("root!", "blub")
 
     Response(Status.OK).with(rootResponseLens of result)

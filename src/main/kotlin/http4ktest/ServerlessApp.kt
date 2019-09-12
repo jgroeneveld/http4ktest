@@ -19,7 +19,7 @@ fun main() {
     // be configured on AWS.
     fun runLambdaLocally() {
         val app: HttpHandler = TweetEchoLambda(mapOf())
-        val localLambda = app.asServer(SunHttp(8000)).start()
+        app.asServer(SunHttp(8000)).start()
 
 //        println(ApacheClient()(Request(Method.GET, "http://localhost:8000/").body("hello hello hello, i suppose this isn't 140 characters anymore..")))
 //        localLambda.stop()
