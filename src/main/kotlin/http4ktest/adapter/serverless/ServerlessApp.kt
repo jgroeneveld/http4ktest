@@ -1,5 +1,7 @@
-package http4ktest
+package http4ktest.adapter.serverless
 
+import http4ktest.adapter.api.rootHandler
+import http4ktest.domain.SomeService
 import org.http4k.core.HttpHandler
 import org.http4k.server.SunHttp
 import org.http4k.server.asServer
@@ -11,7 +13,7 @@ import org.http4k.serverless.lambda.LambdaFunction
 // This AppLoader is responsible for building our HttpHandler which is supplied to AWS
 // It is the only actual piece of code that needs to be written.
 object TweetEchoLambda : AppLoader {
-    override fun invoke(env: Map<String, String>): HttpHandler = rootHandler
+    override fun invoke(env: Map<String, String>): HttpHandler = rootHandler(SomeService())
 }
 
 fun main() {

@@ -1,5 +1,6 @@
-package http4ktest
+package http4ktest.adapter.api
 
+import http4ktest.domain.SomeService
 import org.http4k.core.Body
 import org.http4k.core.Request
 import org.http4k.core.Response
@@ -9,8 +10,12 @@ import org.http4k.format.Jackson.auto
 
 val dataHandler = { request: Request ->
     val data = DataRequestPayload.fromRequest(request)
+    val service = SomeService()
 
-    val result = DataResponsePayload("bla '${data.a}'", "blub")
+    val result = DataResponsePayload(
+        "${service.doStuff()} '${data.a}'",
+        "blub"
+    )
 
     Response(Status.OK).with(dataResponseLens of result)
 }
