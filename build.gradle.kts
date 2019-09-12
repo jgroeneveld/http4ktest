@@ -23,6 +23,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     implementation("org.http4k:http4k-core:3.179.1")
+    implementation("org.http4k:http4k-client-okhttp:3.179.1")
     implementation("org.http4k:http4k-server-jetty:3.179.1")
     implementation("org.http4k:http4k-client-apache:3.179.1")
     implementation("org.http4k:http4k-serverless-lambda:3.179.1")

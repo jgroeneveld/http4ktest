@@ -6,15 +6,20 @@ package http4ktest
 import org.http4k.core.*
 import org.http4k.filter.DebuggingFilters
 import org.http4k.filter.ServerFilters.CatchLensFailure
+import org.http4k.server.Http4kServer
 import org.http4k.server.Jetty
 import org.http4k.server.asServer
 
-fun main(args: Array<String>) {
-    DebuggingFilters
+fun server(port: Int): Http4kServer {
+    return DebuggingFilters
         .PrintRequestAndResponse()
         .then(CatchLensFailure)
         .then(appRoutes)
-        .asServer(Jetty(9000)).start()
+        .asServer(Jetty(port))
+}
+
+fun main(args: Array<String>) {
+    server(9000).start()
 
     println("after start")
 }
