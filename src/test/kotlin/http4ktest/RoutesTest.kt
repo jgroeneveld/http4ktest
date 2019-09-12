@@ -1,11 +1,12 @@
 package http4ktest
 
+import assertk.assertThat
+import assertk.assertions.isEqualTo
 import org.http4k.core.Method
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status
 import kotlin.test.Test
-import kotlin.test.assertEquals
 
 class RoutesTest {
     @Test
@@ -14,12 +15,12 @@ class RoutesTest {
         val expectedJson = "{\"blub\":\"root!\",\"blab\":\"blub\"}"
         val expected = Response(Status.OK).body(expectedJson)
 
-        assertEquals(expected.body, rootHandler(request).body)
+        assertThat(expected.body).isEqualTo(rootHandler(request).body)
     }
 
     @Test
     fun `test routes`() {
-        assertEquals(Status.OK, appRoutes(Request(Method.GET, "/")).status)
-        assertEquals(Status.NOT_FOUND, appRoutes(Request(Method.GET, "/does_not_exist")).status)
+        assertThat(Status.OK).isEqualTo(appRoutes(Request(Method.GET, "/")).status)
+        assertThat(Status.NOT_FOUND).isEqualTo(appRoutes(Request(Method.GET, "/does_not_exist")).status)
     }
 }

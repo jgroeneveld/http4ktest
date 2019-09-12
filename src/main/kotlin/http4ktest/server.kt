@@ -21,5 +21,5 @@ fun server(port: Int): Http4kServer {
 fun main(args: Array<String>) {
     server(9000).start()
 
-    println("after start")
+    println("server started")
 }
