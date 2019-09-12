@@ -3,7 +3,7 @@
  */
 package http4ktest
 
-import org.http4k.core.*
+import org.http4k.core.then
 import org.http4k.filter.DebuggingFilters
 import org.http4k.filter.ServerFilters.CatchLensFailure
 import org.http4k.server.Http4kServer
@@ -11,11 +11,7 @@ import org.http4k.server.Jetty
 import org.http4k.server.asServer
 
 fun server(port: Int): Http4kServer {
-    return DebuggingFilters
-        .PrintRequestAndResponse()
-        .then(CatchLensFailure)
-        .then(appRoutes)
-        .asServer(Jetty(port))
+    return DebuggingFilters.PrintRequestAndResponse().then(CatchLensFailure).then(appRoutes).asServer(Jetty(port))
 }
 
 fun main(args: Array<String>) {

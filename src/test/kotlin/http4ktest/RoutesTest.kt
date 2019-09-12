@@ -25,4 +25,3 @@ class RoutesTest {
         assertThat(appRoutes(Request(Method.GET, "/does_not_exist"))).hasStatus(Status.NOT_FOUND)
     }
 }
-

@@ -7,6 +7,7 @@
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin on the JVM.
     id("org.jetbrains.kotlin.jvm").version("1.3.21")
+    id("org.jlleitschuh.gradle.ktlint").version("8.2.0")
 
     // Apply the application plugin to add support for building a CLI application.
     application

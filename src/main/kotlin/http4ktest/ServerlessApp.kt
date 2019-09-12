@@ -1,11 +1,6 @@
 package http4ktest
 
-import org.http4k.client.ApacheClient
 import org.http4k.core.HttpHandler
-import org.http4k.core.Method
-import org.http4k.core.Request
-import org.http4k.core.Response
-import org.http4k.core.Status.Companion.OK
 import org.http4k.server.SunHttp
 import org.http4k.server.asServer
 import org.http4k.serverless.AppLoader
@@ -32,7 +27,12 @@ fun main() {
 
     // the following code is purely here for demonstration purposes, to explain exactly what is happening at AWS.
     fun runLambdaAsAwsWould() {
-        val lambda = LambdaFunction(mapOf(BootstrapAppLoader.HTTP4K_BOOTSTRAP_CLASS to TweetEchoLambda::class.java.name))
+        val lambda = LambdaFunction(
+            mapOf(
+                BootstrapAppLoader.HTTP4K_BOOTSTRAP_CLASS to TweetEchoLambda::class.java.name
+            )
+        )
+
         val response = lambda.handle(ApiGatewayProxyRequest().apply {
             path = "/"
             body = "hello hello hello, i suppose this isn't 140 characters anymore.."
@@ -47,5 +47,4 @@ fun main() {
 
     runLambdaLocally()
 //    runLambdaAsAwsWould()
-
 }
