@@ -6,7 +6,7 @@ import org.junit.Test
 
 class SomeServiceTest {
     @Test
-    fun  testDoStuff() {
+    fun testDoStuff() {
         val result = SomeService().doStuff()
 
         assertThat(result).isEqualTo("Hello World!")
