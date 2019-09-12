@@ -1,14 +1,12 @@
 package http4ktest
 
-import assertk.assertThat
-import http4ktest.testsupport.isOk
 import org.http4k.client.OkHttp
 import org.http4k.core.Method
+import org.http4k.core.Response
 import org.junit.After
 import org.junit.Before
-import org.junit.Test
 
-class EndToEndTest {
+open class EndToEndTest {
     val testServer = server(0)
     val client = OkHttp()
 
@@ -22,14 +20,11 @@ class EndToEndTest {
         testServer.stop()
     }
 
-    @Test
-    fun execute() {
-        val response = client(
+    protected fun getRequest(path: String): Response {
+        return client(
             org.http4k.core.Request(
-                Method.GET, "http://localhost:${testServer.port()}/"
+                Method.GET, "http://localhost:${testServer.port()}$path"
             )
         )
-
-        assertThat(response).isOk()
     }
 }
