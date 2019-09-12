@@ -7,7 +7,8 @@ import http4ktest.testsupport.isOk
 import org.junit.Test
 
 class ExampleEndToEndTest : EndToEndTest() {
-    override val someService: SomeService = SomeService()
+    override val someService: SomeService
+        get() = SomeService()
 
     @Test
     fun `this test shows we can test the full stack easily`() {

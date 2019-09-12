@@ -15,7 +15,7 @@ class RootHandlerTest {
 
     @Test
     fun `this test shows we can easily test a single handler`() {
-        val expectedJson = "{\"blub\":\"root!\",\"blab\":\"blub\"}"
+        val expectedJson = "{\"blub\":\"root!\",\"blab\":\"Hello World!\"}"
 
         val response = handler(Request(Method.GET, "/"))
 
