@@ -2,6 +2,7 @@ package http4ktest
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo
+import http4ktest.testsupport.isOk
 import org.http4k.client.OkHttp
 import org.http4k.core.Method
 import org.http4k.core.Status
@@ -32,6 +33,6 @@ class EndToEndTest {
             )
         )
 
-        assertThat(response.status).isEqualTo(Status.OK)
+        assertThat(response).isOk()
     }
 }
