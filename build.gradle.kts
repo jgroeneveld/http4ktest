@@ -37,6 +37,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 
     testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.19")
+    testImplementation("io.mockk:mockk:1.9.3.kotlin12")
 }
 
 application {
