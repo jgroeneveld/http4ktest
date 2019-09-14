@@ -6,9 +6,17 @@ import http4ktest.domain.SomeService
 class App
 
 fun main(args: Array<String>) {
+    val port: String = getEnv("PORT", "9000")
     val someService = SomeService()
 
-    server(9000, someService).start()
+    println("starting server on port $port")
+
+    server(port.toInt(), someService).start()
 
     println("server started")
+}
+
+fun getEnv(key: String, default: String): String {
+    val sysVal = System.getenv(key) ?: default
+    return sysVal.ifBlank { default }
 }

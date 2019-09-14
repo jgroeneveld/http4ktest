@@ -9,7 +9,8 @@ plugins {
     id("org.jetbrains.kotlin.jvm").version("1.3.21")
     id("org.jlleitschuh.gradle.ktlint").version("8.2.0")
 
-    id("com.github.johnrengelman.shadow").version("5.1.0")
+    // id("com.github.johnrengelman.shadow").version("5.1.0")
+     id("com.google.cloud.tools.jib").version("1.6.0")
     id("java")
 
     // Apply the application plugin to add support for building a CLI application.
@@ -41,10 +42,6 @@ dependencies {
 
     testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.19")
     testImplementation("io.mockk:mockk:1.9.3.kotlin12")
-}
-
-tasks.shadowJar {
-    mergeServiceFiles()
 }
 
 application {
