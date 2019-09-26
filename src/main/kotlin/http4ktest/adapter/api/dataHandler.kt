@@ -1,14 +1,12 @@
 package http4ktest.adapter.api
 
 import http4ktest.domain.SomeService
-import org.http4k.core.Body
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status
-import org.http4k.format.Jackson.auto
 
 val dataHandler = { request: Request ->
-    val data = DataRequestPayload.fromRequest(request)
+    val data = request.parseBody<DataRequestPayload>()
     val service = SomeService()
 
     val result = DataResponsePayload(
@@ -22,13 +20,7 @@ val dataHandler = { request: Request ->
 data class DataRequestPayload(
     val a: String,
     val b: String
-) {
-    companion object {
-        fun fromRequest(request: Request): DataRequestPayload {
-            return Body.auto<DataRequestPayload>().toLens()(request)
-        }
-    }
-}
+)
 
 data class DataResponsePayload(
     val blub: String,
