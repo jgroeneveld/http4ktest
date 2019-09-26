@@ -8,3 +8,7 @@ https://www.http4k.org/tutorials/tdding_http4k/
 ## Local image
 
 - Build docker image locally: `./gradlew jibDockerBuild`
+
+## Decisions
+
+- Use klaxon for json instead of http4k lenses.

@@ -5,7 +5,6 @@ import org.http4k.core.Body
 import org.http4k.core.Request
 import org.http4k.core.Response
 import org.http4k.core.Status
-import org.http4k.core.with
 import org.http4k.format.Jackson.auto
 
 val dataHandler = { request: Request ->
@@ -17,7 +16,7 @@ val dataHandler = { request: Request ->
         "blub"
     )
 
-    Response(Status.OK).with(dataResponseLens of result)
+    Response(Status.OK).jsonBody(result)
 }
 
 data class DataRequestPayload(
@@ -36,4 +35,3 @@ data class DataResponsePayload(
     val blab: String
 )
 
-val dataResponseLens = Body.auto<DataResponsePayload>().toLens()

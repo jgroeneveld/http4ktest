@@ -33,6 +33,7 @@ dependencies {
     implementation("org.http4k:http4k-client-apache:3.179.1")
     implementation("org.http4k:http4k-serverless-lambda:3.179.1")
     implementation("org.http4k:http4k-format-jackson:3.179.1")
+    implementation("com.beust:klaxon:5.0.1")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")

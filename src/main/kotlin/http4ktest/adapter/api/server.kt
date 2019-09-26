@@ -13,7 +13,7 @@ import org.http4k.server.asServer
 
 fun server(port: Int, someService: SomeService): Http4kServer {
     val appRoutes = routes(
-        "/" bind Method.GET to rootHandler(someService),
+        "/" bind Method.GET to RootHandler(someService),
         "/data" bind Method.POST to dataHandler
     )
 
