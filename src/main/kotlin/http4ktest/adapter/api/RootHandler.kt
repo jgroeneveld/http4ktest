@@ -22,4 +22,3 @@ data class RootResponsePayload(
     @Json("lorem_ipsum")
     val loremIpsum: String
 )
-

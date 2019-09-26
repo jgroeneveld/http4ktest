@@ -26,4 +26,3 @@ data class DataResponsePayload(
     val blub: String,
     val blab: String
 )
-

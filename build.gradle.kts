@@ -4,13 +4,15 @@
  * This generated file contains a sample Kotlin application project to get you started.
  */
 
+java.targetCompatibility = JavaVersion.VERSION_11
+
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin on the JVM.
     id("org.jetbrains.kotlin.jvm").version("1.3.21")
     id("org.jlleitschuh.gradle.ktlint").version("8.2.0")
 
     // id("com.github.johnrengelman.shadow").version("5.1.0")
-     id("com.google.cloud.tools.jib").version("1.6.0")
+    id("com.google.cloud.tools.jib").version("1.6.1")
     id("java")
 
     // Apply the application plugin to add support for building a CLI application.

@@ -8,6 +8,7 @@ https://www.http4k.org/tutorials/tdding_http4k/
 ## Local image
 
 - Build docker image locally: `./gradlew jibDockerBuild`
+- Run locally `docker run -p 9000:9000 NAME`
 
 ## Decisions
 
