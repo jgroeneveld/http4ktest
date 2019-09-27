@@ -46,6 +46,7 @@ dependencies {
     testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.19")
     testImplementation("io.mockk:mockk:1.9.3.kotlin12")
     testImplementation("ch.tutteli.atrium:atrium-fluent-en_GB:0.9.0-alpha")
+    testImplementation("org.amshove.kluent:kluent:1.55")
 }
 
 application {
