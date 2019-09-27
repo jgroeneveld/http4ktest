@@ -83,7 +83,8 @@ class AssertionFrameworksTest {
 
         // custom matchers
         response shouldHaveStatus Status.OK
-        response shouldHaveBody "{\"foo_baxr\" : \"root!\", \"lorem_ipsum\" : \"Mock Answer\"}"
+        response shouldHaveBody "{\"foo_bar\" : \"root!\", \"lorem_ipsum\" : \"Mock Answer\"}"
+        response shouldHaveHeader ("Content-Type" to "application/json")
     }
 
     // ******************************** assertk extensions ********************************
@@ -118,7 +119,16 @@ class AssertionFrameworksTest {
         }
     }
 
-    infix fun Response.shouldHaveStatus(expectedStatus: Status) = this.apply { assertEquals(expectedStatus, this.status, "Response Status") }
+    // ******************************** kluent extensions ********************************
+    infix fun Response.shouldHaveStatus(expectedStatus: Status): Response {
+        return this.apply { assertEquals(expectedStatus, this.status, "Response Status") }
+    }
 
-    infix fun Response.shouldHaveBody(body: String) = this.apply { assertEquals(body, this.bodyString(), "Response Body") }
+    infix fun Response.shouldHaveBody(body: String): Response {
+        return this.apply { assertEquals(body, this.bodyString(), "Response Body") }
+    }
+
+    infix fun Response.shouldHaveHeader(header: Pair<String, String>): Response {
+        return this.apply { assertEquals(header.second, this.header(header.first), "Response Header ${header.first}") }
+    }
 }
