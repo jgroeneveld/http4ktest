@@ -7,7 +7,7 @@ import org.http4k.core.Body
 import org.http4k.core.Response
 import org.http4k.core.Status
 
-fun Assert<Response>.isOk(): Assert<Response> = this.hasStatus(Status.OK)
+fun Assert<Response>.hasStatusOK(): Assert<Response> = this.hasStatus(Status.OK)
 
 fun Assert<Response>.hasStatus(status: Status): Assert<Response> {
     prop("status", Response::status).isEqualTo(status)

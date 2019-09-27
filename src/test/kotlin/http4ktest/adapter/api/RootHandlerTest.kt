@@ -3,8 +3,7 @@ package http4ktest.adapter.api
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import http4ktest.domain.SomeService
-import http4ktest.testsupport.hasBody
-import http4ktest.testsupport.isOk
+import http4ktest.testsupport.*
 import io.mockk.every
 import io.mockk.mockk
 import org.http4k.core.Method
@@ -24,7 +23,7 @@ class RootHandlerTest {
 
         val response = handler(Request(Method.GET, "/"))
 
-        assertThat(response).isOk().hasBody(expectedJson)
+        assertThat(response).hasStatusOK().hasBody(expectedJson)
         assertThat(response.header("Content-Type")).isEqualTo("application/json")
     }
 }
